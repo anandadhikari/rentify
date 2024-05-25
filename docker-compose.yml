@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:80"
+  
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE=mongodb+srv://anand:anand123@cluster0.9xse71c.mongodb.net/rentt
+      - PORT=5000
+      - JWT_KEY=3ZPlXc5WhgFqCrsG1cyHt5E4xKyJmgDVZz28YRR7pDs

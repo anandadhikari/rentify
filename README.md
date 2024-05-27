@@ -2,6 +2,7 @@
 
 ## Introduction
 Rentify is your solution in a world where finding the right rental property can be daunting. As we transition back to normalcy post-pandemic, the demand for real estate is soaring. Rentify steps in to bridge the gap, offering a user-friendly platform for property owners and tenants alike. With Rentify, renting meets simplicity, empowering you to find your perfect match effortlessly. Welcome to a new era of hassle-free renting with Rentify.
+https://rentifys-frontend.onrender.com
 
 
 ## Technologies Used

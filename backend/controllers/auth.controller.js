@@ -1,11 +1,11 @@
 import User from "../models/user.model.js";
 import createError from "../utils/createError.js";
-import argon2 from "argon2";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res, next) => {
   try {
-    const hash = argon2.hashSync(req.body.password, 5);
+    const hash = bcrypt.hashSync(req.body.password, 5);
     const newUser = new User({
       ...req.body,
       password: hash,
@@ -24,7 +24,7 @@ export const login = async (req, res, next) => {
 
     if (!user) return next(createError(404, "User not found!"));
 
-    const isCorrect = argon2.compareSync(req.body.password, user.password);
+    const isCorrect = bcrypt.compareSync(req.body.password, user.password);
     if (!isCorrect)
       return next(createError(400, "Wrong password or username!"));
 

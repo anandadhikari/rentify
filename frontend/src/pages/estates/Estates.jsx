@@ -27,8 +27,6 @@ function Estates() {
         }),
   });
 
-  console.log(data)
-
   const reSort = (type) => {
     setSort(type);
     setOpen(false);

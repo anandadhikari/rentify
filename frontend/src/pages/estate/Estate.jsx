@@ -133,7 +133,7 @@ function Estate() {
           </div>
           <div className="right">
             <div className="price">
-              <h3>{data.Address}</h3>
+              <h3>{data.address}</h3>
               <h3>₹ {data.price}</h3>
             </div>
             <p>{data.shortDesc}</p>

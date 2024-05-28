@@ -10,6 +10,10 @@ function CatCard({ card }) {
         <div className="category__details">
           <p className="category__desc">{card.shortDesc}</p>
           <p className="category__title">{card.title}</p>
+          <div className="category__desc">
+            {card.totalStars}
+            <img src="./img/star.png" alt="" />
+          </div>
         </div>
       </div>
     </Link>

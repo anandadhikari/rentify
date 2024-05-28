@@ -41,6 +41,8 @@ export const estateReducer = (state, action) => {
           (feature) => feature !== action.payload
         ),
       };
+    case "SET_INITIAL_STATE":
+      return { ...state, ...action.payload };
 
     default:
       return state;

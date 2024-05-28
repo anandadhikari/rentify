@@ -71,3 +71,24 @@ export const getEstates = async (req, res, next) => {
     next(err); // Pass error to error handling middleware
   }
 };
+
+export const patchEstate = async (req, res, next) => {
+  try {
+    const estate = await Estate.findById(req.params.id);
+    if (!estate) {
+      return next(createError(404, "Estate not found!"));
+    }
+
+    if (estate.userId !== req.userId) {
+      return next(createError(403, "You can update only your estates!"));
+    }
+
+    Object.assign(estate, req.body);
+
+    const updatedEstate = await estate.save();
+
+    res.status(200).json(updatedEstate);
+  } catch (err) {
+    next(err);
+  }
+};

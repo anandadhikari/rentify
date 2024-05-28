@@ -12,6 +12,7 @@ import Add from "./pages/add/Add";
 import MyEstates from "./pages/myEstates/MyEstates";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Head from "./components/head/Head";
+import Edit from "./pages/edit/Edit";
 
 function App() {
   const queryClient = new QueryClient();
@@ -49,6 +50,10 @@ function App() {
         {
           path: "/add",
           element: <Add />,
+        },
+        {
+          path: "/edit/:id",
+          element: <Edit />,
         },
         {
           path: "/estate/:id",

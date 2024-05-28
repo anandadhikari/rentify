@@ -34,9 +34,9 @@ function MyEstates() {
   return (
     <div className="myestates container">
       {isLoading ? (
-        "loading"
+        <div>Loading...</div>
       ) : error ? (
-        "error"
+        <div>Error: {error.message}</div>
       ) : (
         <div className="myestates__container">
           <div className="title-bar">
@@ -53,7 +53,7 @@ function MyEstates() {
                 <th>Image</th>
                 <th>Title</th>
                 <th>Price/Month</th>
-                <th>Tenent</th>
+                <th>Tenant</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -62,7 +62,9 @@ function MyEstates() {
                 <tr key={estate._id}>
                   <td>
                     <div className="image_cont">
+                    <Link to={`/estate/${estate._id}`}>
                       <img className="image" src={estate.cover} alt="" />
+                      </Link>
                     </div>
                   </td>
                   <td>{estate.title}</td>
@@ -72,9 +74,16 @@ function MyEstates() {
                     <img
                       className="delete"
                       src="./img/others/delete.png"
-                      alt=""
+                      alt="delete"
                       onClick={() => handleDelete(estate._id)}
                     />
+                    <Link to={`/edit/${estate._id}`}>
+                      <img
+                        className="edit"
+                        src="./img/others/edit.png"
+                        alt="edit"
+                      />
+                    </Link>
                   </td>
                 </tr>
               ))}
